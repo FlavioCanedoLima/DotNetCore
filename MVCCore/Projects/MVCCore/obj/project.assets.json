@@ -12545,11 +12545,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "D:\\_Development\\_Git\\FlavioCanedo\\DotNetCore\\MVCCore\\MVCCore\\MVCCore\\MVCCore.csproj",
+      "projectUniqueName": "D:\\_Development\\_Git\\FlavioCanedo\\DotNetCore\\MVCCore\\Projects\\MVCCore\\MVCCore.csproj",
       "projectName": "MVCCore",
-      "projectPath": "D:\\_Development\\_Git\\FlavioCanedo\\DotNetCore\\MVCCore\\MVCCore\\MVCCore\\MVCCore.csproj",
+      "projectPath": "D:\\_Development\\_Git\\FlavioCanedo\\DotNetCore\\MVCCore\\Projects\\MVCCore\\MVCCore.csproj",
       "packagesPath": "C:\\Users\\Flavio Canedo\\.nuget\\packages\\",
-      "outputPath": "D:\\_Development\\_Git\\FlavioCanedo\\DotNetCore\\MVCCore\\MVCCore\\MVCCore\\obj\\",
+      "outputPath": "D:\\_Development\\_Git\\FlavioCanedo\\DotNetCore\\MVCCore\\Projects\\MVCCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
