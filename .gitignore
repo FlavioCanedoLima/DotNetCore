@@ -5,3 +5,5 @@
 /.vs
 /MVCCore/MVCCore/.vs/MVCCore/v15
 /MVCCore/Projects/.vs/MVCCore/v15
+/MVCCore/Projects/MVCCore/bin/Debug/netcoreapp2.0
+/MVCCore/Projects/MVCCore/obj/Debug/netcoreapp2.0
