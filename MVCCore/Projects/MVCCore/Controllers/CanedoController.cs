@@ -1,30 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace MVCCore.Controllers
 {
+    /// <summary>
+    /// Para mais informações:
+    /// https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing#route-constraint-reference
+    /// </summary>
     public class CanedoController : Controller
     {
+        [HttpGet]
         [Route("Canedo/Main-Page"), Route("", Order = 0)]
         public IActionResult Index()
         {
             return View();
         }
 
+        [HttpGet]
         public IActionResult IndexJson()
         {
             return Json("{'Nome':'Canedo'}");
         }
 
+        [HttpGet]
         public IActionResult RedirectToIndex()
         {
             return RedirectToAction("Index");
         }
 
         //Sample: {server}/Canedo/IndexParameter/1/Flavio/Canedo
+        [HttpGet]
         [Route("Canedo/IndexParameter"), 
             Route("Canedo/IndexParameter/{id:int}/{name:alpha}/{lastName:alpha}")]
         public IActionResult IndexParameter(int id, string name, string lastName)
@@ -34,6 +39,7 @@ namespace MVCCore.Controllers
         }
 
         //Sample: {server}/Canedo/IndexDateTime/2018-03-08 10:41:55pm
+        [HttpGet]
         [Route("Canedo/IndexDateTime"),
             Route("Canedo/IndexDateTime/{dateTime:datetime}")]
         public IActionResult IndexDateTime(DateTime dateTime)
@@ -42,6 +48,7 @@ namespace MVCCore.Controllers
         }
 
         //Sample: {server}/Canedo/IndexNumbers/123456789/49.99/1.234/1.234/123456789/CD2C1638-1638-72D5-1638-DEADBEEF1638
+        [HttpGet]
         [Route("Canedo/IndexNumbers"),
             Route("Canedo/IndexNumbers/{_int:int}/{_decimal:decimal}/{_double:double}/{_float:float}/{_long:long}/{guid:guid}")]
         public IActionResult IndexNumbers(int _int, decimal _decimal, double _double, float _float, long _long, Guid guid)
@@ -54,6 +61,7 @@ namespace MVCCore.Controllers
         }
 
         //Sample: {server}/Canedo/IndexLength/Canedo/Canedo/FlavioCanedo/FlavioCanedo
+        [HttpGet]
         [Route("Canedo/IndexLength"),
             Route("Canedo/IndexLength/{minLength:minlength(4)}/{maxLength:maxlength(6)}/{length:length(12)}/{range:length(8,16)}")]
         public IActionResult IndexLength(string minLength, string maxLength, string length, string range)
@@ -66,6 +74,7 @@ namespace MVCCore.Controllers
         }
 
         //Sample: {server]/Canedo/IndexLengthNumber/18/90/90
+        [HttpGet]
         [Route("Canedo/IndexLengthNumber"),
             Route("Canedo/IndexLengthNumber/{min:min(18)}/{max:max(120)}/{range:range(18,120)}")]
         public IActionResult IndexLengthNumber(int min, int max, int range)
@@ -74,6 +83,7 @@ namespace MVCCore.Controllers
         }
 
         //Sample: {server}/Canedo/IndexCEP/17-055-100
+        [HttpGet]
         [Route("Canedo/IndexCEP"),
             Route("Canedo/IndexCEP/{cep:regex(^\\d{{2}}-\\d{{3}}-\\d{{3}}$)}")]
         public IActionResult IndexCEP(string cep)
