@@ -10,7 +10,7 @@ namespace MVCCore.Controllers
     public class CanedoController : Controller
     {
         [HttpGet]
-        [Route("Canedo/Main-Page"), Route("", Order = 0)]
+        [Route("Canedo/Main-Page")]
         public IActionResult Index()
         {
             return View();
