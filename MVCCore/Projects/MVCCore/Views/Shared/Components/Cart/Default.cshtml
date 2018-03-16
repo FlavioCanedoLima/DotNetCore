@@ -1,0 +1,9 @@
+﻿@model MVCCore.Models.CartModel
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        <a asp-action="Index" asp-controller="Home" title="Cart">
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+            @Model.AmountItems
+        </a>
+    </li>
+</ul>

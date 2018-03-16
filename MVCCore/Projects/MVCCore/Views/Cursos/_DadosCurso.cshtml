@@ -1,0 +1,39 @@
+﻿@model MVCCore.Models.ViewModels.CursoCategoriaViewModel
+
+<div class="form-group">
+    <label asp-for="CursoModel.Name" class="control-label"></label>
+    <input asp-for="CursoModel.Name" class="form-control" />
+    <span asp-validation-for="CursoModel.Name" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="CursoModel.Price" class="control-label"></label>
+    <input asp-for="CursoModel.Price" class="form-control" />
+    <span asp-validation-for="CursoModel.Price" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <div class="checkbox">
+        <label>
+            <input asp-for="CursoModel.Free" /> @Html.DisplayNameFor(model => model.CursoModel.Free)
+        </label>
+    </div>
+</div>
+<div class="form-group">
+    <label asp-for="CursoModel.ZipCode" class="control-label"></label>
+    <input asp-for="CursoModel.ZipCode" class="form-control" />
+    <span asp-validation-for="CursoModel.ZipCode" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="CursoModel.Description" class="control-label"></label>
+    <input asp-for="CursoModel.Description" class="form-control" />
+    <span asp-validation-for="CursoModel.Description" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="CursoModel.StartDate" class="control-label"></label>
+    <input asp-for="CursoModel.StartDate" class="form-control" />
+    <span asp-validation-for="CursoModel.StartDate" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="CursoModel.EndDate" class="control-label"></label>
+    <input asp-for="CursoModel.EndDate" class="form-control" />
+    <span asp-validation-for="CursoModel.EndDate" class="text-danger"></span>
+</div>
