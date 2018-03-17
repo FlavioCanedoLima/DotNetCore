@@ -1,0 +1,10 @@
+D:\_Development\_Git\FlavioCanedo\DotNetCore\MVCCore\Projects\MVCCore\bin\Debug\netcoreapp2.0\MVCCore.deps.json
+D:\_Development\_Git\FlavioCanedo\DotNetCore\MVCCore\Projects\MVCCore\bin\Debug\netcoreapp2.0\MVCCore.runtimeconfig.json
+D:\_Development\_Git\FlavioCanedo\DotNetCore\MVCCore\Projects\MVCCore\bin\Debug\netcoreapp2.0\MVCCore.runtimeconfig.dev.json
+D:\_Development\_Git\FlavioCanedo\DotNetCore\MVCCore\Projects\MVCCore\bin\Debug\netcoreapp2.0\MVCCore.dll
+D:\_Development\_Git\FlavioCanedo\DotNetCore\MVCCore\Projects\MVCCore\bin\Debug\netcoreapp2.0\MVCCore.pdb
+D:\_Development\_Git\FlavioCanedo\DotNetCore\MVCCore\Projects\MVCCore\obj\Debug\netcoreapp2.0\MVCCore.csproj.CoreCompileInputs.cache
+D:\_Development\_Git\FlavioCanedo\DotNetCore\MVCCore\Projects\MVCCore\obj\Debug\netcoreapp2.0\MVCCore.AssemblyInfoInputs.cache
+D:\_Development\_Git\FlavioCanedo\DotNetCore\MVCCore\Projects\MVCCore\obj\Debug\netcoreapp2.0\MVCCore.AssemblyInfo.cs
+D:\_Development\_Git\FlavioCanedo\DotNetCore\MVCCore\Projects\MVCCore\obj\Debug\netcoreapp2.0\MVCCore.dll
+D:\_Development\_Git\FlavioCanedo\DotNetCore\MVCCore\Projects\MVCCore\obj\Debug\netcoreapp2.0\MVCCore.pdb
