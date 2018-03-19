@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MVCCoreData.Data;
 
 namespace MVCCoreData
 {
@@ -23,6 +24,7 @@ namespace MVCCoreData
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<Data.DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DataEntityFramaworkCore")));
+            services.AddDapperConnection(Configuration.GetConnectionString("DataEntityFramaworkCore"));
             services.AddMvc();
         }
 

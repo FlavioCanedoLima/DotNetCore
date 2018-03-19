@@ -1,28 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCCoreData.Data;
 using MVCCoreData.Models;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MVCCoreData.Controllers
 {
     public class CourseController : Controller
     {
         private readonly DataContext _context;
+        private readonly DataDapper _dataDapper;
 
-        public CourseController(DataContext context)
+        public CourseController(DataContext context, DataDapper dataDapper)
         {
             _context = context;
+            _dataDapper = dataDapper;
         }
 
         // GET: Course
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Course.ToListAsync());
+            using (var dbConnection = _dataDapper.GetDapperConnection())
+            {                
+                return View((await dbConnection.QueryAsync<CourseModel>("SELECT [Id] = CourseId, * FROM Course")).ToList());
+            }
+
+            //return View(await _context.Course.ToListAsync());
         }
 
         // GET: Course/Details/5
@@ -33,8 +38,16 @@ namespace MVCCoreData.Controllers
                 return NotFound();
             }
 
-            var courseModel = await _context.Course
-                .SingleOrDefaultAsync(m => m.Id == id);
+            var courseModel = new CourseModel();
+
+            using (var dbConnection = _dataDapper.GetDapperConnection())
+            {
+                courseModel = (await dbConnection.QueryAsync<CourseModel>("SELECT [Id] = CourseId, * FROM Course c WHERE c.CourseId = " + id)).SingleOrDefault();
+            }
+
+            //var courseModel = await _context.Course
+            //    .SingleOrDefaultAsync(m => m.Id == id);
+
             if (courseModel == null)
             {
                 return NotFound();
@@ -73,7 +86,15 @@ namespace MVCCoreData.Controllers
                 return NotFound();
             }
 
-            var courseModel = await _context.Course.SingleOrDefaultAsync(m => m.Id == id);
+            var courseModel = new CourseModel();
+
+            using (var dbConnection = _dataDapper.GetDapperConnection())
+            {
+                courseModel = (await dbConnection.QueryAsync<CourseModel>("SELECT [Id] = CourseId, * FROM Course c WHERE c.CourseId = " + id)).SingleOrDefault();
+            }
+
+            //var courseModel = await _context.Course.SingleOrDefaultAsync(m => m.Id == id);
+
             if (courseModel == null)
             {
                 return NotFound();
@@ -124,8 +145,16 @@ namespace MVCCoreData.Controllers
                 return NotFound();
             }
 
-            var courseModel = await _context.Course
-                .SingleOrDefaultAsync(m => m.Id == id);
+            var courseModel = new CourseModel();
+
+            using (var dbConnection = _dataDapper.GetDapperConnection())
+            {
+                courseModel = (await dbConnection.QueryAsync<CourseModel>("SELECT [Id] = CourseId, * FROM Course c WHERE c.CourseId = " + id)).SingleOrDefault();
+            }
+
+            //var courseModel = await _context.Course
+            //    .SingleOrDefaultAsync(m => m.Id == id);
+
             if (courseModel == null)
             {
                 return NotFound();
@@ -139,7 +168,15 @@ namespace MVCCoreData.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var courseModel = await _context.Course.SingleOrDefaultAsync(m => m.Id == id);
+            var courseModel = new CourseModel();
+
+            using (var dbConnection = _dataDapper.GetDapperConnection())
+            {
+                courseModel = (await dbConnection.QueryAsync<CourseModel>("SELECT [Id] = CourseId, * FROM Course c WHERE c.CourseId = " + id)).SingleOrDefault();
+            }
+
+            //var courseModel = await _context.Course.SingleOrDefaultAsync(m => m.Id == id);
+
             _context.Course.Remove(courseModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -147,7 +184,12 @@ namespace MVCCoreData.Controllers
 
         private bool CourseModelExists(int id)
         {
-            return _context.Course.Any(e => e.Id == id);
+            using (var dbConnection = _dataDapper.GetDapperConnection())
+            {
+                return dbConnection.Query<CourseModel>("SELECT [Id] = CourseId, * FROM Course c WHERE c.CourseId = " + id).ToList().Count > 0;
+            }
+
+            //return _context.Course.Any(e => e.Id == id);
         }
     }
 }
